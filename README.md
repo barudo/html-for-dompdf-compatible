@@ -63,8 +63,54 @@ The exact controller, route, and Blade view names may be adjusted to match the h
 
 When the included `routes/web.php` entries are loaded by Laravel:
 
+- `/` redirects to the AWB preview.
 - `/awb/preview` renders the AWB HTML in the browser for layout inspection.
 - `/awb/pdf` renders the AWB Blade view through DOMPDF and downloads `airway-bill.pdf`.
+
+## Laravel Cloud Deployment
+
+This repository is prepared to deploy from the repository root on Laravel Cloud.
+
+Recommended Laravel Cloud settings:
+
+- PHP version: `8.2` or newer.
+- Build command:
+
+```bash
+composer install --no-dev --optimize-autoloader
+npm install
+npm run build
+LARAVEL_CLOUD=1 php artisan config:cache
+LARAVEL_CLOUD=1 php artisan route:cache
+LARAVEL_CLOUD=1 php artisan view:cache
+```
+
+- Deploy command:
+
+```bash
+php artisan migrate --force
+```
+
+This application does not require a database for the AWB preview or PDF generation itself, but the default Laravel session/cache/job tables are included. If the deployed environment does not attach a database, set these environment values in Laravel Cloud:
+
+```env
+SESSION_DRIVER=file
+CACHE_STORE=file
+QUEUE_CONNECTION=sync
+```
+
+If a database is attached in Laravel Cloud, the default `database` session/cache/queue configuration may be used and the deploy migration command can remain enabled.
+
+Set production environment values in Laravel Cloud rather than committing a `.env` file:
+
+```env
+APP_NAME="AWB DOMPDF"
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://your-laravel-cloud-domain.example
+```
+
+Laravel Cloud will inject platform-managed environment variables for attached resources. Custom environment variables configured in the Laravel Cloud dashboard take precedence over injected values.
 
 ## Dynamic Data
 
