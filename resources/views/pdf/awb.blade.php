@@ -6,7 +6,7 @@
     <style>
         @page {
             size: A4 portrait;
-            margin: 6mm;
+            margin: 2mm;
         }
 
         * {
@@ -36,30 +36,31 @@
         }
 
         .page {
-            width: 198mm;
-            min-height: 285mm;
+            width: 204mm;
+            min-height: 293mm;
             margin: 0 auto;
             position: relative;
         }
 
         .top-bar {
-            height: 10mm;
+            height: 8mm;
             position: relative;
         }
 
         .barcode {
             position: absolute;
-            left: 69mm;
+            left: 68mm;
             top: 0;
-            width: 55mm;
-            height: 9mm;
+            width: 57mm;
+            height: 8mm;
             overflow: hidden;
-            font-family: "Courier New", monospace;
-            font-size: 20px;
-            font-weight: 700;
-            line-height: 9mm;
-            letter-spacing: 0;
-            white-space: nowrap;
+            text-align: center;
+        }
+
+        .barcode img {
+            width: 57mm;
+            height: 8mm;
+            display: block;
         }
 
         .awb-number {
@@ -123,19 +124,19 @@
 
         .h-20 { height: 20mm; }
         .h-22 { height: 22mm; }
-        .h-25 { height: 25mm; }
-        .h-27 { height: 27mm; }
+        .h-25 { height: 14mm; }
+        .h-27 { height: 18mm; }
         .h-31 { height: 31mm; }
         .h-40 { height: 40mm; }
         .h-55 { height: 55mm; }
         .h-62 { height: 62mm; }
         .h-80 { height: 80mm; }
-        .h-8 { height: 8mm; }
-        .h-9 { height: 9mm; }
-        .h-10 { height: 10mm; }
-        .h-11 { height: 11mm; }
-        .h-13 { height: 13mm; }
-        .h-15 { height: 15mm; }
+        .h-8 { height: 6mm; }
+        .h-9 { height: 5mm; }
+        .h-10 { height: 6mm; }
+        .h-11 { height: 8mm; }
+        .h-13 { height: 9mm; }
+        .h-15 { height: 8mm; }
 
         .header-title {
             font-size: 20px;
@@ -145,17 +146,29 @@
 
         .logo {
             float: right;
-            width: 29mm;
+            width: 34mm;
             height: 20mm;
             text-align: center;
-            color: #306bff;
-            font-size: 16px;
-            font-weight: 700;
-            padding-top: 6mm;
+            padding-top: 1mm;
         }
 
-        .logo span {
-            color: #7ad33a;
+        .logo img {
+            max-width: 34mm;
+            max-height: 20mm;
+            display: inline-block;
+        }
+
+        .destination-logo {
+            margin-top: 1mm;
+            margin-left: 7mm;
+            text-align: left;
+            line-height: 0;
+        }
+
+        .destination-logo img {
+            width: 16mm;
+            max-height: 8mm;
+            display: inline-block;
         }
 
         .notice {
@@ -175,7 +188,7 @@
         }
 
         .route-cell {
-            height: 12mm;
+            height: 8mm;
         }
 
         .goods-heading td {
@@ -185,11 +198,186 @@
         }
 
         .goods-row td {
-            height: 59mm;
+            height: 25mm;
         }
 
         .charges-row td {
-            height: 10mm;
+            height: 6mm;
+        }
+
+        .copy-validity {
+            height: 7mm;
+            border-bottom: 0.35mm solid #000;
+            padding: 1mm;
+            font-weight: 700;
+        }
+
+        .copy-notice {
+            height: 20mm;
+            padding: 2mm;
+        }
+
+        .charge-grid td {
+            vertical-align: top;
+        }
+
+        .charge-tab {
+            text-align: center;
+            height: 4mm;
+            line-height: 0;
+        }
+
+        .charge-tab img {
+            height: 4mm;
+            display: inline-block;
+        }
+
+        .tab-small img {
+            width: 24mm;
+        }
+
+        .tab-medium img {
+            width: 43mm;
+        }
+
+        .tab-wide img {
+            width: 58mm;
+        }
+
+        .charge-tabs-strip td {
+            border: 0;
+            padding: 0;
+            text-align: center;
+            overflow: visible;
+        }
+
+        .split-charge-cell {
+            position: relative;
+            padding: 0;
+        }
+
+        .split-charge-cell > .charge-tab {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+        }
+
+        .split-charge-fill td {
+            border: 0;
+            padding-top: 4mm;
+        }
+
+        .split-charge-fill td + td {
+            border-left: 0.35mm solid #000;
+        }
+
+        .charge-grid .h-9,
+        .charge-grid .h-10 {
+            padding-top: 0;
+        }
+
+        .charge-footer-grid .h-8,
+        .charge-footer-grid .h-10 {
+            padding-top: 0;
+        }
+
+        .bottom-tab-cell {
+            position: relative;
+            padding-top: 0;
+            overflow: visible;
+        }
+
+        .bottom-tab-cell .charge-tab {
+            position: absolute;
+            top: -0.45mm;
+            left: 0;
+            right: 0;
+            z-index: 2;
+        }
+
+        .bottom-tab-cell .value {
+            padding-top: 4mm;
+        }
+
+        .other-charges-box {
+            height: 26mm;
+        }
+
+        .other-charges-box .label {
+            margin-bottom: 2mm;
+        }
+
+        .final-row td {
+            height: 9mm;
+        }
+
+        .signature-cell {
+            font-size: 7px;
+            text-align: center;
+            line-height: 1.05;
+            vertical-align: bottom;
+        }
+
+        .execution-line-cell {
+            vertical-align: top;
+            padding-top: 1mm;
+            white-space: nowrap;
+        }
+
+        .executed-summary-cell {
+            padding: 0;
+        }
+
+        .executed-summary-date {
+            height: 5mm;
+            padding: 1mm 1mm 0;
+            border-bottom: 0.35mm solid #000;
+        }
+
+        .executed-summary-labels td {
+            border: 0;
+            padding: 0;
+            font-size: 7px;
+            line-height: 1;
+            text-align: center;
+            vertical-align: top;
+            white-space: nowrap;
+        }
+
+        .footer-copy-cell {
+            border-right: 0;
+            border-bottom: 0;
+            text-align: right;
+            vertical-align: bottom;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 0.82;
+            padding-right: 0;
+            padding-bottom: 0;
+            white-space: nowrap;
+        }
+
+        .footer-copy-cell .copy-note {
+            display: block;
+            font-size: 12px;
+        }
+
+        .final-copy-area {
+            border-right: 0;
+            border-bottom: 0;
+            padding: 0;
+        }
+
+        .final-copy-table td {
+            border: 0;
+        }
+
+        .final-copy-table td.total-collect-box {
+            border-left: 0.35mm solid #000;
+            border-right: 0.35mm solid #000;
+            border-bottom: 0.35mm solid #000;
         }
 
         .certification {
@@ -209,20 +397,6 @@
             padding-bottom: 1mm;
         }
 
-        .footer-copy {
-            position: absolute;
-            right: 0;
-            bottom: -3mm;
-            text-align: right;
-            font-weight: 700;
-            font-size: 35px;
-            line-height: 0.85;
-        }
-
-        .footer-copy .copy-note {
-            display: block;
-            font-size: 17px;
-        }
     </style>
 </head>
 <body>
@@ -236,14 +410,60 @@
     $firstGoods = $goods[0] ?? [];
     $totals = $awb['totals'] ?? [];
     $certification = $awb['certification'] ?? [];
+    $awbNumber = strtoupper((string) ($awb['awb_number'] ?? ''));
+    $barcodeMap = [
+        '0' => 'nnnwwnwnn', '1' => 'wnnwnnnnw', '2' => 'nnwwnnnnw', '3' => 'wnwwnnnnn',
+        '4' => 'nnnwwnnnw', '5' => 'wnnwwnnnn', '6' => 'nnwwwnnnn', '7' => 'nnnwnnwnw',
+        '8' => 'wnnwnnwnn', '9' => 'nnwwnnwnn', 'A' => 'wnnnnwnnw', 'B' => 'nnwnnwnnw',
+        'C' => 'wnwnnwnnn', 'D' => 'nnnnwwnnw', 'E' => 'wnnnwwnnn', 'F' => 'nnwnwwnnn',
+        'G' => 'nnnnnwwnw', 'H' => 'wnnnnwwnn', 'I' => 'nnwnnwwnn', 'J' => 'nnnnwwwnn',
+        'K' => 'wnnnnnnww', 'L' => 'nnwnnnnww', 'M' => 'wnwnnnnwn', 'N' => 'nnnnwnnww',
+        'O' => 'wnnnwnnwn', 'P' => 'nnwnwnnwn', 'Q' => 'nnnnnnwww', 'R' => 'wnnnnnwwn',
+        'S' => 'nnwnnnwwn', 'T' => 'nnnnwnwwn', 'U' => 'wwnnnnnnw', 'V' => 'nwwnnnnnw',
+        'W' => 'wwwnnnnnn', 'X' => 'nwnnwnnnw', 'Y' => 'wwnnwnnnn', 'Z' => 'nwwnwnnnn',
+        '-' => 'nwnnnnwnw', '.' => 'wwnnnnwnn', ' ' => 'nwwnnnwnn', '*' => 'nwnnwnwnn',
+        '$' => 'nwnwnwnnn', '/' => 'nwnwnnnwn', '+' => 'nwnnnwnwn', '%' => 'nnnwnwnwn',
+    ];
+    $barcodeText = '*' . preg_replace('/[^0-9A-Z. $\/+%-]/', '', $awbNumber) . '*';
+    $barcodeX = 0;
+    $barcodeBars = '';
+    foreach (str_split($barcodeText) as $character) {
+        $pattern = $barcodeMap[$character] ?? $barcodeMap['-'];
+        foreach (str_split($pattern) as $index => $widthCode) {
+            $width = $widthCode === 'w' ? 3 : 1;
+            if ($index % 2 === 0) {
+                $barcodeBars .= '<rect x="' . $barcodeX . '" y="0" width="' . $width . '" height="34" fill="#000"/>';
+            }
+            $barcodeX += $width;
+        }
+        $barcodeX += 1;
+    }
+    $barcodeSvg = 'data:image/svg+xml;base64,' . base64_encode('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' . $barcodeX . ' 34" preserveAspectRatio="none">' . $barcodeBars . '</svg>');
+    $carrierLogoSrc = $carrier['logo_url'] ?? '';
+    if (is_string($carrierLogoSrc) && $carrierLogoSrc !== '' && is_file($carrierLogoSrc)) {
+        $extension = strtolower(pathinfo($carrierLogoSrc, PATHINFO_EXTENSION));
+        $mimeType = $extension === 'svg' ? 'image/svg+xml' : ('image/' . ($extension === 'jpg' ? 'jpeg' : $extension));
+        $carrierLogoSrc = 'data:' . $mimeType . ';base64,' . base64_encode(file_get_contents($carrierLogoSrc));
+    }
+    $chargeTab = function (string $text, int $width = 180, int $fontSize = 12): string {
+        $height = 24;
+        $notch = 24;
+        $safeText = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+        $svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' . $width . ' ' . $height . '" preserveAspectRatio="none">'
+            . '<path d="M1 0 L' . ($width - 1) . ' 0 L' . ($width - $notch) . ' ' . ($height - 3) . ' L' . $notch . ' ' . ($height - 3) . ' Z" fill="#fff" stroke="#000" stroke-width="2"/>'
+            . '<text x="' . ($width / 2) . '" y="16" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="' . $fontSize . '" font-weight="400" fill="#000">' . $safeText . '</text>'
+            . '</svg>';
+
+        return 'data:image/svg+xml;base64,' . base64_encode($svg);
+    };
 @endphp
 <div class="page">
     <div class="top-bar">
-        <div class="barcode">||||||||||||||||||||||||||||||||||||||||</div>
+        <div class="barcode"><img src="{{ $barcodeSvg }}" alt="Barcode for {{ $awbNumber }}"></div>
         <div class="awb-number">{{ $awb['awb_number'] ?? '' }}</div>
     </div>
 
-    <table>
+    <table class="charge-footer-grid">
         <tr>
             <td class="h-27" style="width: 49%;">
                 <span class="label">{{ $shipper['label'] ?? "Shipper's Name and Address" }}</span>
@@ -253,7 +473,9 @@
 {{ $shipper['contact'] ?? '' }}</span>
             </td>
             <td class="h-27" style="width: 51%;">
-                <div class="logo">{{ $carrier['logo_text'] ?? '' }}<br><span class="tiny">{{ $carrier['logo_url'] ?? '' }}</span></div>
+                @if (! empty($carrierLogoSrc))
+                    <div class="logo"><img src="{{ $carrierLogoSrc }}" alt="{{ $carrier['logo_alt'] ?? 'Carrier logo' }}"></div>
+                @endif
                 <span class="bold">Not Negotiable</span><br>
                 <span class="header-title">HOUSE AIR WAYBILL</span><br>
                 <span>issued By</span><br>
@@ -271,8 +493,8 @@
 {{ $consignee['contact'] ?? '' }}</span>
             </td>
             <td class="h-27">
-                <div class="bold" style="margin-bottom: 5mm;">Copies 1, 2 and 3 of this Air waybill are originals and have the same validity</div>
-                <div class="notice">
+                <div class="copy-validity">Copies 1, 2 and 3 of this Air waybill are originals and have the same validity</div>
+                <div class="notice copy-notice">
                     It is agreed that the goods described herein are accepted in apparent good order and condition
                     (except as noted) for carriage SUBJECT TO THE CONDITIONS OF CONTRACT ON THE REVERSE HEREOF.
                     ALL GOODS MAY BE CARRIED BY ANY OTHER MEANS INCLUDING ROAD OR ANY OTHER CARRIER UNLESS
@@ -400,33 +622,77 @@
         <tr class="charges-row">
             <td><span class="value value-center">{{ $totals['pieces'] ?? '' }}</span></td>
             <td><span class="value value-center">{{ $totals['gross_weight'] ?? '' }}</span></td>
-            <td colspan="4">
-                <span class="label">Other Charges</span>
-                <span class="value value-small">{{ $totals['other_charges'] ?? '' }}</span>
-            </td>
+            <td colspan="4"></td>
             <td><span class="value value-small value-center">{{ $totals['total_rate_total'] ?? '' }}</span></td>
             <td></td>
         </tr>
     </table>
 
-    <table>
+    <table class="charge-grid">
         <tr>
-            <td class="h-10" style="width: 17%;">
-                <span class="label-center">Prepaid</span>
-                <span class="value value-small value-center">{{ $totals['weight_charge_prepaid'] ?? '' }}</span>
+            <td class="h-10 split-charge-cell" colspan="2" style="width: 34%;">
+                <table class="charge-tabs-strip">
+                    <tr>
+                        <td style="width: 31%;">
+                            <div class="charge-tab tab-small"><img src="{{ $chargeTab('Prepaid', 130) }}" alt="Prepaid"></div>
+                        </td>
+                        <td style="width: 38%;">
+                            <div class="charge-tab tab-small"><img src="{{ $chargeTab('Weight Charge', 170) }}" alt="Weight Charge"></div>
+                        </td>
+                        <td style="width: 31%;">
+                            <div class="charge-tab tab-small"><img src="{{ $chargeTab('Collect', 130) }}" alt="Collect"></div>
+                        </td>
+                    </tr>
+                </table>
+                <table class="split-charge-fill">
+                    <tr>
+                        <td style="width: 50%;">
+                            <span class="value value-small value-center">{{ $totals['weight_charge_prepaid'] ?? '' }}</span>
+                        </td>
+                        <td style="width: 50%;">
+                            <span class="value value-small value-center">{{ $totals['weight_charge_collect'] ?? '' }}</span>
+                        </td>
+                    </tr>
+                </table>
             </td>
-            <td class="h-10" style="width: 17%;">
-                <span class="label-center">Weight Charge</span>
-                <span class="value value-small value-center">{{ $totals['weight_charge_collect'] ?? '' }}</span>
+            <td class="other-charges-box" style="width: 66%;" rowspan="3">
+                <span class="label">Other Charges</span>
+                <span class="value value-small">{{ $totals['other_charges'] ?? '' }}</span>
             </td>
-            <td class="h-10" style="width: 66%;"></td>
         </tr>
         <tr>
-            <td class="h-9" colspan="2">
-                <span class="label-center">Total Other Charges Due Agent</span>
-                <span class="value value-small value-center">{{ $totals['total_other_due_agent'] ?? '' }}</span>
+            <td class="h-9 split-charge-cell" colspan="2">
+                <div class="charge-tab tab-wide"><img src="{{ $chargeTab('Total Other Charges Due Agent', 260) }}" alt="Total Other Charges Due Agent"></div>
+                <table class="split-charge-fill">
+                    <tr>
+                        <td style="width: 50%;"><span class="value value-small value-center">{{ $totals['total_other_due_agent'] ?? '' }}</span></td>
+                        <td style="width: 50%;"></td>
+                    </tr>
+                </table>
             </td>
-            <td class="h-9" rowspan="5">
+        </tr>
+        <tr>
+            <td class="h-9 split-charge-cell" colspan="2">
+                <div class="charge-tab tab-wide"><img src="{{ $chargeTab('Total Other Charges Due Carrier', 260) }}" alt="Total Other Charges Due Carrier"></div>
+                <table class="split-charge-fill">
+                    <tr>
+                        <td style="width: 50%;"><span class="value value-small value-center">{{ $totals['total_other_due_carrier'] ?? '' }}</span></td>
+                        <td style="width: 50%;"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="h-9 split-charge-cell" colspan="2">
+                <div class="charge-tab tab-medium"><img src="{{ $chargeTab('Valuation Charges', 200) }}" alt="Valuation Charges"></div>
+                <table class="split-charge-fill">
+                    <tr>
+                        <td style="width: 50%;"><span class="value value-small value-center">{{ $totals['valuation_charges'] ?? '' }}</span></td>
+                        <td style="width: 50%;"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="h-9" rowspan="3">
                 <div class="certification">
                     Shipper certifies that the particulars on the face hereof are correct and that insofar as any
                     part of the consignment contains dangerous goods, such part is properly described by name
@@ -440,30 +706,23 @@
             </td>
         </tr>
         <tr>
-            <td class="h-9" colspan="2">
-                <span class="label-center">Total Other Charges Due Carrier</span>
-                <span class="value value-small value-center">{{ $totals['total_other_due_carrier'] ?? '' }}</span>
-            </td>
-        </tr>
-        <tr>
-            <td class="h-9" colspan="2">
-                <span class="label-center">Valuation Charges</span>
-                <span class="value value-small value-center">{{ $totals['valuation_charges'] ?? '' }}</span>
-            </td>
-        </tr>
-        <tr>
-            <td class="h-9" colspan="2">
-                <span class="label-center">Tax</span>
-                <span class="value value-small value-center">{{ $totals['tax'] ?? '' }}</span>
+            <td class="h-9 split-charge-cell" colspan="2">
+                <div class="charge-tab tab-small"><img src="{{ $chargeTab('Tax', 130) }}" alt="Tax"></div>
+                <table class="split-charge-fill">
+                    <tr>
+                        <td style="width: 50%;"><span class="value value-small value-center">{{ $totals['tax'] ?? '' }}</span></td>
+                        <td style="width: 50%;"></td>
+                    </tr>
+                </table>
             </td>
         </tr>
         <tr>
             <td class="h-9">
-                <span class="label-center">Total Prepaid</span>
+                <div class="charge-tab tab-small"><img src="{{ $chargeTab('Total Prepaid', 130) }}" alt="Total Prepaid"></div>
                 <span class="value value-small value-center">{{ $totals['total_prepaid'] ?? '' }}</span>
             </td>
             <td class="h-9">
-                <span class="label-center">Total Collect</span>
+                <div class="charge-tab tab-small"><img src="{{ $chargeTab('Total Collect', 130) }}" alt="Total Collect"></div>
                 <span class="value value-small value-center">{{ $totals['total_collect'] ?? '' }}</span>
             </td>
         </tr>
@@ -471,48 +730,56 @@
 
     <table>
         <tr>
-            <td class="h-8" style="width: 17%;">
-                <span class="label-center">Currency conversion Rates</span>
+            <td class="h-8 bottom-tab-cell" style="width: 17%;">
+                <div class="charge-tab tab-small"><img src="{{ $chargeTab('Currency conversion Rates', 160) }}" alt="Currency conversion Rates"></div>
                 <span class="value value-small value-center">{{ $totals['currency_conversion_rates'] ?? '' }}</span>
             </td>
-            <td class="h-8" style="width: 17%;">
-                <span class="label-center">Collect Charges in Destination Currency</span>
+            <td class="h-8 bottom-tab-cell" style="width: 17%;">
+                <div class="charge-tab tab-small"><img src="{{ $chargeTab('Collect Charges in Destination Currency', 180, 9) }}" alt="Collect Charges in Destination Currency"></div>
                 <span class="value value-small value-center">{{ $totals['collect_charges_destination_currency'] ?? '' }}</span>
             </td>
-            <td class="h-8" style="width: 66%;">
-                <span class="value value-small">{{ $certification['executed_date'] ?? '' }} {{ $certification['executed_place'] ?? '' }}</span>
+            <td class="h-8 executed-summary-cell" style="width: 66%;">
+                <div class="executed-summary-date">
+                    <span class="value value-small">{{ $certification['executed_date'] ?? '' }} {{ $certification['executed_place'] ?? '' }}</span>
+                </div>
+                <table class="executed-summary-labels">
+                    <tr>
+                        <td style="width: 20%;">Executed on</td>
+                        <td style="width: 13%;">(Date)</td>
+                        <td style="width: 20%;">at</td>
+                        <td style="width: 13%;">(Place)</td>
+                        <td style="width: 34%;">Signature of Issuing Carrier or his agent</td>
+                    </tr>
+                </table>
             </td>
         </tr>
-        <tr>
+        <tr class="final-row">
             <td class="h-10">
                 <span class="label-center">For Carrier's Use only at Destination</span>
             </td>
-            <td class="h-10">
-                <span class="label-center">Charges at Destination</span>
+            <td class="h-10 bottom-tab-cell">
+                <div class="charge-tab tab-small"><img src="{{ $chargeTab('Charges at Destination', 150) }}" alt="Charges at Destination"></div>
                 <span class="value value-small value-center">{{ $totals['charges_at_destination'] ?? '' }}</span>
             </td>
-            <td class="h-10">
-                <table>
+            <td class="h-10 final-copy-area">
+                <table class="final-copy-table">
                     <tr>
-                        <td class="no-border" style="width: 30%; text-align: center;">
-                            Executed on<br>{{ $certification['executed_date'] ?? '' }}
+                        <td class="signature-cell bottom-tab-cell total-collect-box" style="width: 25%;">
+                            <div class="charge-tab tab-small"><img src="{{ $chargeTab('Total Collect Charges', 140) }}" alt="Total Collect Charges"></div>
+                            <span class="value value-small value-center">{{ $totals['total_collect_charges'] ?? '' }}</span>
                         </td>
-                        <td class="no-border" style="width: 30%; text-align: center;">
-                            at<br>{{ $certification['executed_place'] ?? '' }}
-                        </td>
-                        <td class="no-border" style="width: 40%; text-align: center;">
-                            Signature of Issuing Carrier or his agent<br>{{ $certification['carrier_signature'] ?? '' }}
+                        <td class="footer-copy-cell" style="width: 75%;">
+                            {{ $awb['copy_label'] ?? '' }}
+                            <span class="copy-note">{{ $awb['copy_label_note'] ?? '' }}</span>
                         </td>
                     </tr>
                 </table>
             </td>
         </tr>
     </table>
-
-    <div class="footer-copy">
-        {{ $awb['copy_label'] ?? '' }}
-        <span class="copy-note">{{ $awb['copy_label_note'] ?? '' }}</span>
-    </div>
+    @if (! empty($carrierLogoSrc))
+        <div class="destination-logo"><img src="{{ $carrierLogoSrc }}" alt="{{ $carrier['logo_alt'] ?? 'Carrier logo' }}"></div>
+    @endif
 </div>
 </body>
 </html>

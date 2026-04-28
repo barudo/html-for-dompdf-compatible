@@ -39,8 +39,8 @@ final class AwbSampleData
                 'issued_by' => 'MY FREIGHT FORWARDING COMPANY LTD',
                 'address' => '30, DEMO FREIGHT BUILDING KUALA LUMPUR Malaysia',
                 'phone' => 'T:+000000 F:+000000',
-                'logo_text' => 'rufaatrack',
-                'logo_url' => 'WWW.RUFAATRACK.COM',
+                'logo_url' => public_path('images/rufaatrack-logo.svg'),
+                'logo_alt' => 'rufaatrack',
             ],
             'routing' => [
                 'departure_airport' => 'KUALA LUMPUR INTERNATIONAL',
