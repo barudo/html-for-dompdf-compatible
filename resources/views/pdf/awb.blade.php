@@ -1045,7 +1045,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="h-15" colspan="4">
+                <td class="h-12" colspan="4">
                     <span class="label">Handling information</span>
                     <span class="value value-small">{{ $awb['handling_information'] ?? '' }}</span>
                 </td>
