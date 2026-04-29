@@ -364,7 +364,7 @@
         }
 
         .goods-row>td {
-            height: 30mm;
+            height: 34mm;
         }
 
         .goods-stack-cell {
@@ -372,12 +372,17 @@
         }
 
         .goods-stack-block {
-            height: 30mm;
+            height: 42mm;
         }
 
-        .goods-stack-top,
+        .goods-stack-top {
+            height: 25mm;
+            padding: 1mm;
+            text-align: center;
+        }
+
         .goods-stack-bottom {
-            height: 15mm;
+            height: 10mm;
             padding: 1mm;
             text-align: center;
         }
@@ -387,12 +392,12 @@
         }
 
         .rate-commodity-value {
-            height: 30mm;
+            height: 34mm;
             position: relative;
         }
 
         .rate-commodity-body {
-            height: 30mm;
+            height: 34mm;
             position: relative;
         }
 
@@ -401,7 +406,7 @@
             left: 0;
             top: 0;
             width: 15%;
-            height: 30mm;
+            height: 70mm;
             border-right: 0.35mm solid #000;
             padding-top: 1mm;
             text-align: center;
@@ -409,7 +414,7 @@
 
         .rate-commodity-body-main {
             margin-left: 15%;
-            height: 30mm;
+            height: 34mm;
         }
 
         .rate-commodity-cell {
@@ -751,10 +756,12 @@
     $width = 160;
     $height = 60;
     $svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' . $width . ' ' . $height . '" preserveAspectRatio="none">'
-        . '<line x1="62" y1="42" x2="118" y2="16" stroke="#000" stroke-width="2"/>'
+        . '
+        <line x1="62" y1="42" x2="118" y2="16" stroke="#000" stroke-width="2" />'
         . '<text x="52" y="24" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#000">Rate</text>'
         . '<text x="108" y="46" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#000">Charge</text>'
-        . '</svg>';
+        . '
+    </svg>';
 
     return 'data:image/svg+xml;base64,' . base64_encode($svg);
     };
@@ -1128,14 +1135,14 @@
         <table>
             <tr>
                 <td class="h-8 bottom-tab-cell" style="width: 17%;">
-                    <div class="charge-tab tab-small"><img src="{{ $chargeTab('Currency conversion Rates', 160) }}" alt="Currency conversion Rates"></div>
+                    <div class="charge-tab tab-small"><img src="{{ $chargeTab('Currency conversion Rates', 160, 8) }}" alt="Currency conversion Rates"></div>
                     <span class="value value-small value-center">{{ $totals['currency_conversion_rates'] ?? '' }}</span>
                 </td>
                 <td class="h-8 bottom-tab-cell" style="width: 17%;">
                     <div class="charge-tab tab-small"><img src="{{ $chargeTab('Collect Charges in Destination Currency', 180, 9) }}" alt="Collect Charges in Destination Currency"></div>
                     <span class="value value-small value-center">{{ $totals['collect_charges_destination_currency'] ?? '' }}</span>
                 </td>
-                <td class="h-8 executed-summary-cell" style="width: 66%;">
+                <td class="h-8 executed-summary-cell no-top-border" style="width: 66%;">
                     <div class="executed-summary-date">
                         <span class="value value-small">{{ $certification['executed_date'] ?? '' }} {{ $certification['executed_place'] ?? '' }}</span>
                     </div>
@@ -1155,14 +1162,14 @@
                     <span class="label-center">For Carrier's Use only at Destination</span>
                 </td>
                 <td class="h-10 bottom-tab-cell">
-                    <div class="charge-tab tab-small"><img src="{{ $chargeTab('Charges at Destination', 150) }}" alt="Charges at Destination"></div>
+                    <div class="charge-tab tab-small"><img src="{{ $chargeTab('Charges at Destination', 150, 8) }}" alt="Charges at Destination"></div>
                     <span class="value value-small value-center">{{ $totals['charges_at_destination'] ?? '' }}</span>
                 </td>
                 <td class="h-10 final-copy-area">
                     <table class="final-copy-table">
                         <tr>
                             <td class="signature-cell bottom-tab-cell total-collect-box" style="width: 25%;">
-                                <div class="charge-tab tab-small"><img src="{{ $chargeTab('Total Collect Charges', 140) }}" alt="Total Collect Charges"></div>
+                                <div class="charge-tab tab-small"><img src="{{ $chargeTab('Total Collect Charges', 140, 8) }}" alt="Total Collect Charges"></div>
                                 <span class="value value-small value-center">{{ $totals['total_collect_charges'] ?? '' }}</span>
                             </td>
                             <td class="footer-copy-cell" style="width: 75%;">
