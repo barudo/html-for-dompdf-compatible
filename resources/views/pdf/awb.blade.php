@@ -928,11 +928,11 @@
 
         <table>
             <tr>
-                <td class="h-13" style="width: 24.5%;">
+                <td class="h-13 no-top-border" style="width: 24.5%;">
                     <span class="label-center">Airport of Destination</span>
                     <span class="value value-small">{{ $routing['destination_airport'] ?? '' }}</span>
                 </td>
-                <td class="h-13 requested-flight-cell" style="width: 24.5%;">
+                <td class="h-13 requested-flight-cell no-top-border" style="width: 24.5%;">
                     <div class="requested-flight-tab">
                         <img src="{{ $requestedFlightTermsTab('Requested Flight/Terms') }}" alt="Requested Flight/Terms">
                     </div>
@@ -943,11 +943,11 @@
                         </tr>
                     </table>
                 </td>
-                <td class="h-13" style="width: 12%;">
+                <td class="h-13 no-top-border" style="width: 12%;">
                     <span class="label-center">Amount of Insurance</span>
                     <span class="value value-small value-center">{{ $routing['amount_insurance'] ?? '' }}</span>
                 </td>
-                <td class="h-13" style="width: 39%;">
+                <td class="h-13 no-top-border" style="width: 39%;">
                     <span class="label">INSURANCE - If carrier offers insurance and such insurance is requested in accordance with the conditions hereof, indicate amount to be insure in figures in box marked 'Amount of Insurance'</span>
                 </td>
             </tr>
@@ -961,10 +961,10 @@
 
         <table class="goods-table">
             <tr class="goods-heading">
-                <td style="width: 4.5%;">No. of<br>Pieces<br>RCP</td>
-                <td style="width: 9%;">Gross<br>Weight</td>
-                <td style="width: 3%;">kg<br>lb</td>
-                <td class="rate-commodity-heading-cell double-right-border">
+                <td class="no-top-border" style="width: 4.5%;">No. of<br>Pieces<br>RCP</td>
+                <td class="no-top-border" style="width: 9%;">Gross<br>Weight</td>
+                <td class="no-top-border" style="width: 3%;">kg<br>lb</td>
+                <td class="rate-commodity-heading-cell double-right-border no-top-border">
                     <table class="rate-commodity-heading">
                         <tr>
                             <td class="rate-commodity-heading-code"></td>
@@ -986,12 +986,12 @@
                         <div class="rate-commodity-main">Commodity<br>Item No.</div>
                     </div>
                 </td -->
-                <td class="double-right-border" style="width: 12%;">Chargeable<br>weight</td>
-                <td class="double-right-border rate-charge-heading" style="width: 12.5%;">
+                <td class="double-right-border no-top-border" style="width: 12%;">Chargeable<br>weight</td>
+                <td class="double-right-border rate-charge-heading no-top-border" style="width: 12.5%;">
                     <img src="{{ $rateChargeHeading() }}" alt="Rate/Charge">
                 </td>
-                <td class="double-right-border" style="width: 13%;">Total</td>
-                <td style="width: 35.5%; text-align: left;">Nature and Quantity of Goods<br>(Incl Dimension or Volume)</td>
+                <td class="double-right-border no-top-border" style="width: 13%;">Total</td>
+                <td class="no-top-border" style="width: 35.5%; text-align: left;">Nature and Quantity of Goods<br>(Incl Dimension or Volume)</td>
             </tr>
             <tr class="goods-row">
                 <td class="goods-stack-cell">
@@ -1027,7 +1027,7 @@
 
         <table class="charge-grid">
             <tr>
-                <td class="h-10 split-charge-cell" colspan="2" style="width: 34%;">
+                <td class="h-10 split-charge-cell no-top-border" colspan="2" style="width: 34%;">
                     <table class="charge-tabs-strip">
                         <tr>
                             <td style="width: 31%;">
@@ -1052,7 +1052,7 @@
                         </tr>
                     </table>
                 </td>
-                <td class="other-charges-box" style="width: 66%;" rowspan="3">
+                <td class="other-charges-box no-top-border" style="width: 66%;" rowspan="3">
                     <span class="label">Other Charges</span>
                     <span class="value value-small">{{ $totals['other_charges'] ?? '' }}</span>
                 </td>
