@@ -302,6 +302,19 @@
 
         .requested-flight-cell {
             padding: 0;
+            position: relative;
+        }
+
+        .requested-flight-cell::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 5mm;
+            bottom: 0;
+            width: 0.35mm;
+            background: #000;
+            transform: translateX(-50%);
+            z-index: 1;
         }
 
         .requested-flight-tab {
@@ -557,6 +570,18 @@
             z-index: 2;
         }
 
+        .split-charge-cell>.charge-tab::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 4mm;
+            bottom: 0;
+            width: 0.35mm;
+            background: #000;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
         .split-charge-fill td {
             border: 0;
             padding-top: 4mm;
@@ -588,6 +613,18 @@
             left: 0;
             right: 0;
             z-index: 2;
+        }
+
+        .bottom-tab-cell .charge-tab::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 4mm;
+            bottom: 0;
+            width: 0.35mm;
+            background: #000;
+            transform: translateX(-50%);
+            z-index: 1;
         }
 
         .bottom-tab-cell .value {
@@ -742,10 +779,14 @@
     $chargeTab = function (string $text, int $width = 180, int $fontSize = 12): string {
     $height = 24;
     $notch = 24;
+    $centerX = $width / 2;
+    $trapezoidBottom = $height - 3;
     $safeText = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
     $svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' . $width . ' ' . $height . '" preserveAspectRatio="none">'
         . '
-        <path d="M1 0 L' . ($width - 1) . ' 0 L' . ($width - $notch) . ' ' . ($height - 3) . ' L' . $notch . ' ' . ($height - 3) . ' Z" fill="#fff" stroke="#000" stroke-width="2" />'
+        <path d="M1 0 L' . ($width - 1) . ' 0 L' . ($width - $notch) . ' ' . $trapezoidBottom . ' L' . $notch . ' ' . $trapezoidBottom . ' Z" fill="#fff" stroke="#000" stroke-width="2" />'
+        . '
+        <line x1="' . $centerX . '" y1="' . $trapezoidBottom . '" x2="' . $centerX . '" y2="' . $height . '" stroke="#000" stroke-width="2" />'
         . '<text x="' . ($width / 2) . '" y="16" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="' . $fontSize . '" font-weight="400" fill="#000">' . $safeText . '</text>'
         . '
     </svg>';
@@ -790,7 +831,7 @@
         . '
         <path d="M1 1 L' . $bottomInset . ' ' . $trapezoidBottom . ' L' . ($width - $bottomInset) . ' ' . $trapezoidBottom . ' L' . ($width - 1) . ' 1" fill="none" stroke="#000" stroke-width="2" />'
         . '
-        <line x1="' . $centerX . '" y1="' . $trapezoidBottom . '" x2="' . $centerX . '" y2="' . ($height - 1) . '" stroke="#000" stroke-width="2" />'
+        <line x1="' . $centerX . '" y1="' . $trapezoidBottom . '" x2="' . $centerX . '" y2="' . $height . '" stroke="#000" stroke-width="2" />'
         . '<text x="' . $centerX . '" y="15" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#000">' . $safeText . '</text>'
         . '
     </svg>';
