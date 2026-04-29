@@ -562,6 +562,19 @@
             padding: 0;
         }
 
+        .split-charge-cell::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 4mm;
+            bottom: 0;
+            width: 0.35mm;
+            background: #000;
+            transform: translateX(-50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
         .split-charge-cell>.charge-tab {
             position: absolute;
             top: 0;
@@ -589,6 +602,18 @@
 
         .split-charge-fill td+td {
             border-left: 0.35mm solid #000;
+        }
+
+        .split-charge-cell .split-charge-fill::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 4mm;
+            bottom: 0;
+            width: 0.35mm;
+            background: #000;
+            transform: translateX(-50%);
+            z-index: 1;
         }
 
         .charge-grid .h-9,
@@ -658,12 +683,32 @@
 
         .executed-summary-cell {
             padding: 0;
+            overflow: visible;
+            position: relative;
         }
+
+        /*.executed-summary-cell::after {
+            content: '';
+            position: absolute;
+            right: -0.175mm;
+            top: 0;
+            bottom: 0;
+            width: 0.35mm;
+            background: #000;
+            z-index: 1;
+        }*/
 
         .executed-summary-date {
             height: 5mm;
             padding: 1mm 1mm 0;
             border-bottom: 0.35mm solid #000;
+            margin: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .executed-summary-labels {
+            border-collapse: collapse;
         }
 
         .executed-summary-labels td {
@@ -1162,6 +1207,16 @@
                 </td>
             </tr>
             <tr>
+                <td class="h-9 split-charge-cell" colspan="2">
+                    <table class="split-charge-fill">
+                        <tr>
+                            <td style="width: 50%;"><span class="value value-small value-center">{{ $totals['tax_prepaid'] ?? '' }}</span></td>
+                            <td style="width: 50%;"><span class="value value-small value-center">{{ $totals['tax_collect'] ?? '' }}</span></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
                 <td class="h-9">
                     <div class="charge-tab tab-small"><img src="{{ $chargeTab('Total Prepaid', 130) }}" alt="Total Prepaid"></div>
                     <span class="value value-small value-center">{{ $totals['total_prepaid'] ?? '' }}</span>
@@ -1170,6 +1225,7 @@
                     <div class="charge-tab tab-small"><img src="{{ $chargeTab('Total Collect', 130) }}" alt="Total Collect"></div>
                     <span class="value value-small value-center">{{ $totals['total_collect'] ?? '' }}</span>
                 </td>
+                <td class="no-bottom-border"></td>
             </tr>
         </table>
 
