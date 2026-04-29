@@ -52,12 +52,12 @@
             left: 69mm;
             top: 0;
             width: 55mm;
-            height: 9mm;
+            height: 8mm;
             overflow: hidden;
             font-family: "Courier New", monospace;
             font-size: 20px;
             font-weight: 700;
-            line-height: 9mm;
+            line-height: 8mm;
             letter-spacing: 0;
             white-space: nowrap;
         }
